@@ -1,26 +1,12 @@
 ﻿using log4net;
-using Microsoft.VisualBasic.FileIO;
-using Microsoft.Win32;
-using Microsoft.WindowsAPICodePack.Dialogs;
 using MySql.Data.MySqlClient;
 using SuperChat.Model;
 using System;
-using System.Collections.Generic;
 using System.Data.Linq;
-using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace SuperChat
 {
@@ -48,37 +34,49 @@ namespace SuperChat
         {
             logger.Info("追加ボタンクリック");
 
-            // 接続
-            using (var conn = new MySqlConnection("Database=sys;Data Source=localhost;User Id=root;Password=root; sqlservermode=True;"))
+            if (String.IsNullOrEmpty(txt_name.Text))
             {
-                conn.Open();
-
-                // データを追加する
-                using (DataContext context = new DataContext(conn))
-                {
-
-                    // 対象のテーブルオブジェクトを取得
-                    var table = context.GetTable<PublicRelationsInformation>();
-
-
-                    // データ作成
-                    PublicRelationsInformation publicRelationsInformation = new PublicRelationsInformation();
-
-                    publicRelationsInformation.ID = GetMaxPublicRelationsInfo();
-                    publicRelationsInformation.Name = txt_name.Text;
-                    publicRelationsInformation.Gender = cmb_gender.Text;
-                    publicRelationsInformation.Age = int.Parse(txt_age.Text);
-                    publicRelationsInformation.Course = txt_course.Text;
-
-                    // データ追加
-                    table.InsertOnSubmit(publicRelationsInformation);
-                    // DBの変更を確定
-                    context.SubmitChanges();
-                }
-                conn.Close();
+                MessageBox.Show("名前を入力してください");
             }
+            else
+            {
+                // 接続
+                using (var conn = new MySqlConnection("Database=sys;Data Source=localhost;User Id=root;Password=root; sqlservermode=True;"))
+                {
+                    conn.Open();
 
-            MessageBox.Show("データを追加しました。");
+                    // データを追加する
+                    using (DataContext context = new DataContext(conn))
+                    {
+                        // 対象のテーブルオブジェクトを取得
+                        var table = context.GetTable<PublicRelationsInformation>();
+
+                        // データ作成
+                        PublicRelationsInformation publicRelationsInformation = new PublicRelationsInformation();
+
+                        publicRelationsInformation.ID = GetMaxPublicRelationsInfo();
+                        publicRelationsInformation.Name = txt_name.Text;
+                        publicRelationsInformation.Gender = cmb_gender.Text;
+                        //年齢がからの場合0を入力する
+                        if (String.IsNullOrEmpty(txt_age.Text))
+                        {
+                            publicRelationsInformation.Age = 0;
+                        }
+                        else
+                        {
+                            publicRelationsInformation.Age = int.Parse(txt_age.Text);
+                        }
+                        publicRelationsInformation.Course = txt_course.Text;
+
+                        // データ追加
+                        table.InsertOnSubmit(publicRelationsInformation);
+                        // DBの変更を確定
+                        context.SubmitChanges();
+                    }
+                    conn.Close();
+                }
+                MessageBox.Show("データを追加しました。");
+            }
         }
 
         private int GetMaxPublicRelationsInfo()
@@ -90,9 +88,8 @@ namespace SuperChat
                     try
                     {
                         // データを取得
-                        Table<StudentInformation> tblStudent = con.GetTable<StudentInformation>();
-
-                        int result = tblStudent.Max(x => x.ID);
+                        Table<PublicRelationsInformation> tblPublicRelations = con.GetTable<PublicRelationsInformation>();
+                        int result = tblPublicRelations.Max(x => x.ID);
 
                         return result + 1;
                     }
@@ -100,7 +97,6 @@ namespace SuperChat
                     {
                         return 1;
                     }
-
                 }
             }
         }

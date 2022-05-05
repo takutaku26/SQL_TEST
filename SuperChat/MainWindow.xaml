@@ -14,8 +14,7 @@
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="Transparent"
-        AllowsTransparency="True"
-        >
+        AllowsTransparency="True">
 
     <!--Menu画面を扱うため　追加→xmlns:vm="clr-namespace:SuperChat.ViewModel"　-->
     <Window.DataContext>

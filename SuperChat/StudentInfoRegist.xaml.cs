@@ -1,26 +1,12 @@
 ﻿using log4net;
-using Microsoft.VisualBasic.FileIO;
-using Microsoft.Win32;
-using Microsoft.WindowsAPICodePack.Dialogs;
 using MySql.Data.MySqlClient;
 using SuperChat.Model;
 using System;
-using System.Collections.Generic;
 using System.Data.Linq;
-using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace SuperChat
 {
@@ -47,37 +33,48 @@ namespace SuperChat
         {
             logger.Info("追加ボタンクリック");
 
-            // 接続
-            using (var conn = new MySqlConnection("Database=sys;Data Source=localhost;User Id=root;Password=root; sqlservermode=True;"))
+            if (String.IsNullOrEmpty(txt_name.Text))
             {
-                conn.Open();
-
-                // データを追加する
-                using (DataContext context = new DataContext(conn))
-                {
-
-                    // 対象のテーブルオブジェクトを取得
-                    var table = context.GetTable<StudentInformation>();
-                    
-
-                    // データ作成
-                    StudentInformation studentInformation = new StudentInformation();
-
-                    studentInformation.ID = GetMaxStudentInfo();
-                    studentInformation.Name = txt_name.Text;
-                    studentInformation.Gender = cmb_gender.Text;
-                    studentInformation.Age = int.Parse(txt_age.Text);
-                    studentInformation.Course = txt_course.Text;
-
-                    // データ追加
-                    table.InsertOnSubmit(studentInformation);
-                    // DBの変更を確定
-                    context.SubmitChanges();
-                }
-                conn.Close();
+                MessageBox.Show("名前を入力してください");
             }
-            
-            MessageBox.Show("データを追加しました。");
+            else
+            {
+                // 接続
+                using (var conn = new MySqlConnection("Database=sys;Data Source=localhost;User Id=root;Password=root; sqlservermode=True;"))
+                {
+                    conn.Open();
+
+                    // データを追加する
+                    using (DataContext context = new DataContext(conn))
+                    {
+                        // 対象のテーブルオブジェクトを取得
+                        var table = context.GetTable<StudentInformation>();
+
+                        // データ作成
+                        StudentInformation studentInformation = new StudentInformation();
+                        studentInformation.ID = GetMaxStudentInfo();
+                        studentInformation.Name = txt_name.Text;
+                        studentInformation.Gender = cmb_gender.Text;
+                        //年齢がからの場合0を入力する
+                        if (String.IsNullOrEmpty(txt_age.Text))
+                        {
+                            studentInformation.Age = 0;
+                        }
+                        else
+                        {
+                            studentInformation.Age = int.Parse(txt_age.Text);
+                        }
+                        studentInformation.Course = txt_course.Text;
+
+                        // データ追加
+                        table.InsertOnSubmit(studentInformation);
+                        // DBの変更を確定
+                        context.SubmitChanges();
+                    }
+                    conn.Close();
+                }
+                MessageBox.Show("データを追加しました。");
+            }
         }
 
         private int GetMaxStudentInfo()
@@ -98,7 +95,6 @@ namespace SuperChat
                     {
                         return 1;
                     }
-
                 }
             }
         }

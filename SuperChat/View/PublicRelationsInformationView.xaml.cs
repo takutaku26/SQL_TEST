@@ -10,16 +10,8 @@ using System.Data.Linq;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace SuperChat.View
 {
@@ -89,12 +81,8 @@ namespace SuperChat.View
             var win = new PublicRelationsInforRegist();
             win.ShowDialog();
 
-            if (!win.IsCancel)
-            {
-                // データ再検索
-                searchData();
-            }
-            
+            // データ再検索
+            searchData();
         }
 
         private void del_button_Click(object sender, RoutedEventArgs e)
@@ -132,7 +120,6 @@ namespace SuperChat.View
 
             // データ再検索
             searchData();
-
             MessageBox.Show("データを削除しました。");
         }
 
@@ -175,7 +162,6 @@ namespace SuperChat.View
                 }
                 conn.Close();
             }
-
             MessageBox.Show(count + " / " + list.Count + " 件 のデータを取り込みました。");
 
             // データ再検索
