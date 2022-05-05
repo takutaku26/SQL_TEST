@@ -63,7 +63,7 @@ namespace SuperChat
                     // データ作成
                     StudentInformation studentInformation = new StudentInformation();
 
-                    studentInformation.ID = 123456;
+                    studentInformation.ID = GetMaxStudentInfo();
                     studentInformation.Name = txt_name.Text;
                     studentInformation.Gender = cmb_gender.Text;
                     studentInformation.Age = int.Parse(txt_age.Text);
@@ -78,6 +78,29 @@ namespace SuperChat
             }
             
             MessageBox.Show("データを追加しました。");
+        }
+
+        private int GetMaxStudentInfo()
+        {
+            using (var conn = new MySqlConnection("Database=sys;Data Source=localhost;User Id=root;Password=root; sqlservermode=True;"))
+            {
+                using (DataContext con = new DataContext(conn))
+                {
+                    try
+                    {
+                        // データを取得
+                        Table<StudentInformation> tblStudent = con.GetTable<StudentInformation>();
+                        int result = tblStudent.Max(x => x.ID);
+
+                        return result + 1;
+                    }
+                    catch
+                    {
+                        return 1;
+                    }
+
+                }
+            }
         }
 
         //年齢のテキストに数字のみ記入

@@ -50,7 +50,6 @@ namespace SuperChat.View
             {
                 conn.Open();
 
-                // 猫データマスタを取得してコンボボックスに設定する
                 using (DataContext con = new DataContext(conn))
                 {
                     // データを取得
