@@ -128,9 +128,6 @@
     <Compile Include="ViewModel\NavigationViweModel.cs" />
     <Compile Include="ViewModel\PublicRelationsInformationViewModel.cs" />
     <Compile Include="ViewModel\StudentInformationViewModel.cs" />
-    <Compile Include="View\DesktopView.xaml.cs">
-      <DependentUpon>DesktopView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\PublicRelationsInformationView.xaml.cs">
       <DependentUpon>PublicRelationsInformationView.xaml</DependentUpon>
     </Compile>
@@ -154,10 +151,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Styles.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\DesktopView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

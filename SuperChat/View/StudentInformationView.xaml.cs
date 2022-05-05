@@ -45,7 +45,6 @@ namespace SuperChat.View
         /// </summary>
         private void searchData()
         {
-            //using (var conn = new SQLiteConnection("Data Source=SampleDb.sqlite"))
             using (var conn = new MySqlConnection("Database=sys;Data Source=localhost;User Id=root;Password=root; sqlservermode=True;"))
             {
                 conn.Open();
@@ -141,7 +140,7 @@ namespace SuperChat.View
 
             // 接続
             int count = 0;
-            //using (var conn = new SQLiteConnection("Data Source=SampleDb.sqlite"))
+ 
             using (var conn = new MySqlConnection("Database=sys;Data Source=localhost;User Id=root;Password=root; sqlservermode=True;"))
             {
                 conn.Open();
@@ -259,8 +258,6 @@ namespace SuperChat.View
             // ダイアログ生成
             CommonOpenFileDialog dlg = new CommonOpenFileDialog();
 
-            // パラメタ設定
-
             // タイトル
             dlg.Title = "フォルダ選択";
             // フォルダ選択かどうか
@@ -285,7 +282,7 @@ namespace SuperChat.View
 
                 // 接続
                 int count = 0;
-                //using (var conn = new SQLiteConnection("Data Source=SampleDb.sqlite"))
+
                 using (var conn = new MySqlConnection("Database=sys;Data Source=localhost;User Id=root;Password=root; sqlservermode=True;"))
                 {
                     conn.Open();

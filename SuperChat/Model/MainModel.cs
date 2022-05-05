@@ -11,16 +11,4 @@ namespace SuperChat.Model
         public string MenuName { get; set; }
         public string MenuImage { get; set; }
     }
-
-    public class HomeItems
-    {
-        public string HomeName { get; set; }
-        public string HomeImage { get; set; }
-    }
-
-    public class DesktopItems
-    {
-        public string DesktopName { get; set; }
-        public string DesktopImage { get; set; }
-    }
 }
