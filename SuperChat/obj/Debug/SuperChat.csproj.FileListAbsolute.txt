@@ -103,3 +103,4 @@ C:\Users\passp\SQL_TEST\SuperChat\obj\Debug\StudentInfoRegist.g.cs
 C:\Users\passp\SQL_TEST\SuperChat\obj\Debug\StudentInfoRegist.baml
 C:\Users\passp\SQL_TEST\SuperChat\obj\Debug\PublicRelationsInforRegist.g.cs
 C:\Users\passp\SQL_TEST\SuperChat\obj\Debug\PublicRelationsInforRegist.baml
+C:\Users\passp\SQL_TEST\SuperChat\obj\Debug\SuperChat.csproj.AssemblyReference.cache

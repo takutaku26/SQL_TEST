@@ -118,9 +118,9 @@ namespace SuperChat.View
                     // 対象のテーブルオブジェクトを取得
                     var table = context.GetTable<StudentInformation>();
                     // 選択されているデータを取得
-                    StudentInformation cat = this.dataGrid.SelectedItem as StudentInformation;
+                    StudentInformation studentInformation = this.dataGrid.SelectedItem as StudentInformation;
                     // テーブルから対象のデータを取得
-                    var target = table.Single(x => x.ID == cat.ID);
+                    var target = table.Single(x => x.ID == studentInformation.ID);
                     // データ削除
                     table.DeleteOnSubmit(target);
                     // DBの変更を確定
@@ -341,6 +341,5 @@ namespace SuperChat.View
 
             return list;
         }
-
     }
 }

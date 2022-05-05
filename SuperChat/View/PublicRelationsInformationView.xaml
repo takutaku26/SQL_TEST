@@ -73,7 +73,29 @@
               Grid.ColumnSpan="6"
               Grid.RowSpan="4">
 
-            <DataGrid Name="dataGrid">
+            <DataGrid Name="dataGrid"
+                      AutoGenerateColumns="False"
+                      HorizontalAlignment="Left"
+                      IsReadOnly="True"
+                      AllowDrop="False"
+                      >
+                <DataGrid.Columns>
+
+                    <DataGridTextColumn Header="ID" Width="50"
+                                Binding="{Binding ID}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="名前" Width="200"
+                                Binding="{Binding Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="性別" Width="50"
+                                Binding="{Binding Gender}">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="年齢" Width="100"
+                                Binding="{Binding Age}">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="コース" Width="200"
+                                Binding="{Binding Course}">
+                    </DataGridTextColumn>
+
+                </DataGrid.Columns>
             </DataGrid>
 
         </Grid>
