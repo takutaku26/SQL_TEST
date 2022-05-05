@@ -66,9 +66,6 @@
                      Text="{Binding FilterText, UpdateSourceTrigger=PropertyChanged}"
                      Style="{StaticResource SearchBoxStyle}"/>
 
-            <TextBlock Text="Search"
-                       Style="{StaticResource SearchTextStyle}"/>
-
         </Grid>
 
         <Grid Grid.Row="2"

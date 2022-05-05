@@ -85,7 +85,17 @@ namespace SuperChat.View
 
         private void add_button_Click(object sender, RoutedEventArgs e)
         {
+            logger.Info("追加ボタンクリック");
 
+            var win = new PublicRelationsInforRegist();
+            win.ShowDialog();
+
+            if (!win.IsCancel)
+            {
+                // データ再検索
+                searchData();
+            }
+            
         }
 
         private void del_button_Click(object sender, RoutedEventArgs e)
