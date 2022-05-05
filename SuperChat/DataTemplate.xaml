@@ -3,8 +3,12 @@
                     xmlns:viewmodel="clr-namespace:SuperChat.ViewModel"
                     xmlns:view="clr-namespace:SuperChat.View">
 
-    <DataTemplate DataType="{x:Type viewmodel:DesktopViewModel}">
-        <view:DesktopView/>
+    <DataTemplate DataType="{x:Type viewmodel:StudentInformationViewModel}">
+        <view:StudentInformationView/>
     </DataTemplate>
-    
+
+    <DataTemplate DataType="{x:Type viewmodel:PublicRelationsInformationViewModel}">
+        <view:PublicRelationsInformationView/>
+    </DataTemplate>
+
 </ResourceDictionary>

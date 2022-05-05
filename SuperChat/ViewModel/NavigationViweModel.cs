@@ -16,8 +16,8 @@ namespace SuperChat.ViewModel
         {
             ObservableCollection<MenuItems> menuItems = new ObservableCollection<MenuItems>
             {
-                new MenuItems { MenuName = "Home", MenuImage = @"Assets/Home_Icon.png" },
-                new MenuItems { MenuName = "Desktop", MenuImage = @"Assets/Desktop_Icon.png" },
+                new MenuItems { MenuName = "生徒情報", MenuImage = @"Assets/Home_Icon.png" },
+                new MenuItems { MenuName = "願書情報", MenuImage = @"Assets/Desktop_Icon.png" },
             };
 
             MenuItemsCollection = new CollectionViewSource { Source = menuItems };
@@ -76,11 +76,11 @@ namespace SuperChat.ViewModel
         {
             switch (parameter)
             {
-                case "Home":
-                    //SelectedViewModel = new HomeViewModel();
+                case "生徒情報":
+                    SelectedViewModel = new StudentInformationViewModel();
                     break;
-                case "Desktop":
-                    SelectedViewModel = new DesktopViewModel();
+                case "願書情報":
+                    SelectedViewModel = new PublicRelationsInformationViewModel();
                     break;
             }
         }
