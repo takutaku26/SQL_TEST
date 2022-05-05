@@ -22,10 +22,86 @@
     </UserControl.Style>
 
     <Grid>
-        <TextBlock Text="願書情報"
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0"
+              Grid.Column="0">
+            
+            <TextBlock Text="生徒情報"
                    FontSize="24"
                    Foreground="#DDDDDD"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top"/>
+
+        </Grid>
+
+        <Grid Grid.Row="1"
+              Grid.Column="0"
+              Grid.ColumnSpan="6"
+              Grid.RowSpan="4">
+
+            <DataGrid Name="dataGrid">
+            </DataGrid>
+
+        </Grid>
+
+
+
+        <Grid Grid.Row="7"
+              Grid.Column="0">
+            <Button x:Name="search_button" Content="検索" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="30"/>
+        </Grid>
+
+        <Grid Grid.Row="7"
+              Grid.Column="1">
+            <Button x:Name="add_button" Content="追加" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="30"/>
+        </Grid>
+
+        <Grid Grid.Row="7"
+              Grid.Column="2">
+            <Button x:Name="upd_button" Content="更新" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="30"/>
+        </Grid>
+
+        <Grid Grid.Row="7"
+              Grid.Column="3">
+            <Button x:Name="del_button" Content="削除" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="30"/>
+        </Grid>
+
+        <Grid Grid.Row="7"
+              Grid.Column="4">
+            <Button x:Name="imp_button" Content="CSV読込" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="30"/>
+        </Grid>
+
+        <Grid Grid.Row="7"
+              Grid.Column="5">
+            <Button x:Name="exp_button" Content="CSV出力" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="30"/>
+        </Grid>
+
+        <Grid Grid.Row="7"
+              Grid.Column="6">
+            <Button x:Name="fld_button" Content="フォルダ参照" HorizontalAlignment="Left" VerticalAlignment="Top" Width="97" Height="30"/>
+        </Grid>
+
     </Grid>
 </UserControl>
