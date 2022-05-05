@@ -24,6 +24,8 @@ namespace SuperChat.View
         public StudentInformationView()
         {
             InitializeComponent();
+            // データ検索
+            searchData();
         }
 
         private void search_button_Click(object sender, RoutedEventArgs e)
@@ -60,7 +62,7 @@ namespace SuperChat.View
                     else
                     {
                         result = from x in tblStudent
-                                 where x.Name.StartsWith(searchName) & x.Name == searchName
+                                 where x.Name.StartsWith(searchName) & x.Name.StartsWith(searchName)
                                  orderby x.ID
                                  select x;
 

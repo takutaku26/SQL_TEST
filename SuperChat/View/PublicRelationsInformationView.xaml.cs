@@ -23,6 +23,8 @@ namespace SuperChat.View
         public PublicRelationsInformationView()
         {
             InitializeComponent();
+            // データ検索
+            searchData();
         }
 
         ILog logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -61,7 +63,7 @@ namespace SuperChat.View
                     else
                     {
                         result = from x in tblStudent
-                                 where x.Name.StartsWith(searchName) & x.Name == searchName
+                                 where x.Name.StartsWith(searchName) & x.Name.StartsWith(searchName)
                                  orderby x.ID
                                  select x;
 
