@@ -16,12 +16,15 @@ namespace SuperChat.ViewModel
         {
             ObservableCollection<MenuItems> menuItems = new ObservableCollection<MenuItems>
             {
-                new MenuItems { MenuName = "生徒情報", MenuImage = @"Assets/Home_Icon.png" },
-                new MenuItems { MenuName = "願書情報", MenuImage = @"Assets/Desktop_Icon.png" },
+                new MenuItems { MenuName = "生徒情報", MenuImage = @"Assets/Student_Icon.png" },
+                new MenuItems { MenuName = "願書情報", MenuImage = @"Assets/publicRelation_Icon.png" },
             };
 
             MenuItemsCollection = new CollectionViewSource { Source = menuItems };
             MenuItemsCollection.Filter += MenuItems_Filter;
+
+            // 生徒情報を初めに表示
+            SelectedViewModel = new StudentInformationViewModel();
 
         }
 

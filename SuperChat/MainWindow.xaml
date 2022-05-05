@@ -38,7 +38,7 @@
                 Height="80"
                 Width="850">
 
-            <TextBlock Text="C #   D E S I G N   P R O"
+            <TextBlock Text="広報情報"
                        Style="{StaticResource HeaderStyle}"/>
 
         </Border>
@@ -51,9 +51,6 @@
                 CornerRadius="100,0,10,0"
                 Height="80"
                 Width="850">
-
-            <TextBlock Text="D E S I G N   T H E   I N T E R F A C E"
-                       Style="{StaticResource FooterStyle}"/>
 
         </Border>
 

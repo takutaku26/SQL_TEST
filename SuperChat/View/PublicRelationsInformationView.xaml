@@ -49,7 +49,7 @@
         <Grid Grid.Row="0"
               Grid.Column="0">
 
-            <TextBlock Text="広報情報"
+            <TextBlock Text="願書情報"
                    FontSize="24"
                    Foreground="#DDDDDD"
                    HorizontalAlignment="Left"

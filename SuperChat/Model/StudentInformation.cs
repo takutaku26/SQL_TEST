@@ -17,7 +17,7 @@ namespace SuperChat.Model
         public String Name { get; set; }
         [Column(Name = "GENDER")]
         public String Gender { get; set; }
-        [Column(Name = "age")]
+        [Column(Name = "AGE")]
         public int Age { get; set; }
         [Column(Name = "COURSE")]
         public String Course { get; set; }
