@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace SuperChat.Model
 {
     [Table(Name = "SCHOOL_STUDENTS_TBL")]
-    public class Student
+    public class StudentInformation
     {
 
         [Column(Name = "ID", IsPrimaryKey = true)]
